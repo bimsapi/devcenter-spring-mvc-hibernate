@@ -89,4 +89,7 @@
     <changeSet author="balcorn (generated)" id="1378323359202-10">
         <createSequence sequenceName="hibernate_sequence"/>
     </changeSet>
+    <changeSet author="balcorn" id="tag-1.0">
+        <tagDatabase tag="1.0"/>
+    </changeSet>
 </databaseChangeLog>
