@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="balcorn (generated)" id="1378323359202-1">
+        <createTable tableName="abstract_person">
+            <column name="dtype" type="VARCHAR(31)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="birth_day" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(30)"/>
+            <column name="first_name" type="VARCHAR(30)"/>
+            <column name="home_page" type="VARCHAR(30)"/>
+            <column name="last_name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="telephone" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT4"/>
+            <column name="employed_since" type="TIMESTAMP WITH TIME ZONE"/>
+            <column name="specialty" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-2">
+        <createTable tableName="visit">
+            <column name="id" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="version" type="INT4"/>
+            <column name="visit_date" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pet" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vet" type="INT8"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-3">
+        <createTable tableName="pet">
+            <column name="id" type="INT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="send_reminders" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="INT4"/>
+            <column name="weight" type="FLOAT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner" type="INT8"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-4">
+        <addPrimaryKey columnNames="id" constraintName="abstract_person_pkey" tableName="abstract_person"/>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-5">
+        <addPrimaryKey columnNames="id" constraintName="visit_pkey" tableName="visit"/>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-6">
+        <addPrimaryKey columnNames="id" constraintName="pet_pkey" tableName="pet"/>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-7">
+        <addForeignKeyConstraint baseColumnNames="pet" baseTableName="visit" constraintName="fk6b04d4b6b108014" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pet"/>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-8">
+        <addForeignKeyConstraint baseColumnNames="vet" baseTableName="visit" constraintName="fk6b04d4b6b10ad20" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="abstract_person"/>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-9">
+        <addForeignKeyConstraint baseColumnNames="owner" baseTableName="pet" constraintName="fk1b11fe8e4e5bc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="abstract_person"/>
+    </changeSet>
+    <changeSet author="balcorn (generated)" id="1378323359202-10">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+</databaseChangeLog>
