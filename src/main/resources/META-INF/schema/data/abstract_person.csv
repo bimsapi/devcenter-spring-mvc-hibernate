@@ -1,0 +1,3 @@
+dtype,id,address,birth_day,city,email,first_name,home_page,last_name,telephone,version,employed_since,specialty
+Vet,1,2445 M St,"1971-01-01 00:00:00 -5:00",Washington,alcornr@advisory.com,Bob,"",Alc,7035551212,0,2013-01-01 00:00:00-05,0
+Owner,2,2445 M St,"1971-01-01 00:00:00 -5:00",Washington,howeg@advisory.com,Goeff,"",How,2025551212,0,NULL,NULL
